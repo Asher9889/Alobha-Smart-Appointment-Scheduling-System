@@ -14,9 +14,9 @@ app.use(express.urlencoded({extended: true}));
 
 app.use("/api", apiRoutes);
 
-app.use("/", (req, res) => {
-    res.send("OK");
-})
+// app.use("/", (req, res) => {
+//     res.send("OK");
+// })
 
 
 app.use(routeNotExistsHandler);
