@@ -1,17 +1,16 @@
-
 import mongoose from "mongoose";
+import { envConfig } from "../config";
 
 
-async function connectMongoDB():Promise<void>{
-   try {
-    const uri = "mongodb://localhost:27017/attendance_app_db"
-    const urii = `mongodb+srv://saurabhkushwaha9889:${encodeURIComponent("Saurabh@9889")}@cluster0.rse4qyj.mongodb.net/knovator_db`;
-    await mongoose.connect(uri);
-
-    console.log("Connected to MongoDB successfully", mongoose.connection.name);
-   } catch (error) {
-    console.error("Error connecting to MongoDB:", error); 
-   }
+async function connectMongoDB(): Promise<void> {
+    try {
+        const { mongodbUsername, mongodbPassword, mongodbCluster, mongodbDbName } = envConfig;
+        const uri = `mongodb+srv://${mongodbUsername}:${mongodbPassword}@${mongodbCluster}/${mongodbDbName}`;
+        await mongoose.connect(uri);
+        console.log("Connected to MongoDB successfully", mongoose.connection.name);
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error);
+    }
 }
 
 export default connectMongoDB;

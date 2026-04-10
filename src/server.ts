@@ -22,6 +22,6 @@ app.use("/", (req, res) => {
 app.use(routeNotExistsHandler);
 app.use(globalErrorHandler);
 
-app.listen(envConfig.PORT, ()=> {
-    console.log(`Server is running on port ${envConfig.PORT} ...`);
+app.listen(envConfig.port, ()=> {
+    console.log(`Server is running on port ${envConfig.port} ...`);
 })
