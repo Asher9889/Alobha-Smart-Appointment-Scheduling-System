@@ -3,9 +3,10 @@ import { connectMongoDB } from "./db";
 import apiRoutes from "./routes";
 import { envConfig } from "./config";
 import { globalErrorHandler, routeNotExistsHandler } from "./utils";
-
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 connectMongoDB();
 
 
