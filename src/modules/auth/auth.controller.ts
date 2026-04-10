@@ -19,6 +19,16 @@ class AuthController {
             return next(error);
         }
     };
+
+    loginUser = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const { email, password } = req.body;
+            const result = await this.authService.loginUser(email, password);
+            return ApiResponse.success(res, StatusCodes.OK, "Login successful", result);
+        } catch (error) {
+            return next(error);
+        }
+    }
 }
 
 export default AuthController;

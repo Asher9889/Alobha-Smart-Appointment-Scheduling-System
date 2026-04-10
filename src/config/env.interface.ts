@@ -4,6 +4,7 @@ interface IEnvConfig {
     mongodbPassword: string;
     mongodbCluster: string;
     mongodbDbName: string;
+    jwtSecret: string;
 
 }
 

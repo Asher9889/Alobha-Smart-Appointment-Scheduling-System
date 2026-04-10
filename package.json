@@ -6,9 +6,10 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch ./src/server.ts",
     "build": "tsc",
-    "prod": "node dist/server.js"
+    "prod": "node ./dist/server.js",
+    "seed:slots": "tsx ./src/seeders/seedSlots.ts"
   },
   "keywords": [],
   "author": "Saurabh Kushwaha",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.5.2",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2"

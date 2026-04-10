@@ -7,7 +7,7 @@ export interface IAppointmentSlot extends Document {
     endTime: Date;
 
     isBooked: boolean;
-    bookedBy: mongoose.Schema.Types.ObjectId | null;
+    bookedBy: mongoose.Types.ObjectId | null;
 
     createdAt: Date;
     updatedAt: Date;
@@ -48,7 +48,7 @@ appointmentSlotSchema.index( { date: 1, startTime: 1, endTime: 1 }, { unique: tr
 appointmentSlotSchema.index({ bookedBy: 1, date: 1 }); // for faster fetching user appointments(one appointment per day)
 appointmentSlotSchema.index({ isBooked: 1, date: 1 }); // for faster checking slot is available or not
 
-const AppointmentSlotModel = mongoose.model<IAppointmentSlot>("AppointmentSlot", appointmentSlotSchema);
+const AppointmentSlotModel = mongoose.model<IAppointmentSlot>("AppointmentSlot", appointmentSlotSchema, "appointment_slots");
 
 export default AppointmentSlotModel;
 
